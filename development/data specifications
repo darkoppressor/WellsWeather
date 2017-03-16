@@ -1,0 +1,74 @@
+Creation date
+JSON: {creationDateLocal} (string)
+Stored as: String
+Source
+JSON: {currentobservation {name, id}} (strings)
+Stored as: String, current observation name and id
+Temperature
+JSON: {currentobservation {Temp}} || {data {temperature[]}} (integer, degrees F)
+Stored as: int, degrees F
+Weather
+JSON: {currentobservation {Weather}} || {data {weather[]}} (string)
+Stored as: String
+Text
+JSON: {data {text[]}} (string)
+Stored as: String
+Weather image
+JSON: {currentobservation {Weatherimage}} || {data {iconLink[]}} (string, in the form filename.png,
+the elements of iconLink are prefixed with the URL)
+Stored as: String
+Precipitation chance
+JSON: {data {pop[]}} (integer, percentage, can also be 'null')
+Stored as: int, percentage
+Period name
+JSON: {time {startPeriodName[]}} (string)
+Stored as: String
+Temperature label
+JSON: {time {tempLabel[]}} (string)
+Stored as: String
+Relative humidity
+JSON: {currentobservation {Relh}} (integer, percentage, can also be 'NA')
+Stored as: int, percentage
+Dewpoint
+JSON: {currentobservation {Dewp}} (integer, degrees F, can also be 'NA')
+Stored as: int, degrees F
+Wind direction
+JSON: {currentobservation {Windd}} (integer, degrees true, 999 represents NA (variable direction))
+Stored as: int, degrees true, clamped to [0,359]
+Wind speed
+JSON: {currentobservation {Winds}} (integer, miles per hour)
+Stored as: int, miles per hour
+Wind gusts
+JSON: {currentobservation {Gust}} (integer, miles per hour, 0 means no gusts)
+Stored as: int, miles per hour
+Wind chill
+JSON: {currentobservation {WindChill}} (integer, degrees F, can also be 'NA')
+Stored as: int, degrees F
+Heat index
+The heat index is derived from data after retrieval from JSON
+Stored as: int, degrees F
+Atmospheric pressure
+JSON: {currentobservation {Altimeter}} (double, millibars, can also be 'NA')
+Alternate JSON: {currentobservation {SLP}} (double, inches of mercury)
+Stored as: double, millibars
+Latitude
+JSON: {currentobservation {latitude}} (double)
+Stored as: double
+Longitude
+JSON: {currentobservation {longitude}} (double)
+Stored as: double
+Elevation
+JSON: {currentobservation {elev}} (integer, feet)
+Stored as: int, feet
+Visibility
+JSON: {currentobservation {Visibility}} (double, miles)
+Stored as: double, miles
+Hazard text
+JSON: {data {hazard[0..n]}} (string)
+Stored as: String
+Hazard URL
+JSON: {data {hazardUrl[0..n]}} (string, ampersands are "duplicated" like this: '&amp;')
+Stored as: String
+
+If all forecast arrays are not the same size, assume all forecast data is invalid
+Do the same thing for the hazard arrays

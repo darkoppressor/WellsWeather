@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="@string/pref_default_location"
+        android:key="checkbox_location"
+        android:title="@string/pref_title_location" />
+
+    <EditTextPreference
+        android:defaultValue="@string/pref_default_manual_location"
+        android:hint="@string/pref_hint_manual_location"
+        android:key="edittext_manual_location"
+        android:title="@string/pref_title_manual_location"
+        android:dependency="checkbox_location" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_default_units"
+        android:entries="@array/pref_units_list_titles"
+        android:entryValues="@array/pref_units_list_values"
+        android:key="list_units"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_units" />
+
+</PreferenceScreen>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Wells Weather</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="pref_title_location">Specify location manually</string>
+    <string name="pref_default_location">false</string>
+
+    <string name="pref_title_manual_location">ZIP code or address</string>
+    <string name="pref_hint_manual_location">ZIP code or address</string>
+    <string name="pref_default_manual_location"></string>
+
+    <string name="pref_title_units">Units</string>
+    <string name="pref_default_units">other</string>
+    <string-array name="pref_units_list_titles">
+        <item>SI</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="pref_units_list_values">
+        <item>si</item>
+        <item>other</item>
+    </string-array>
+
+    <string name="header_hazards">Hazardous Weather Conditions</string>
+    <string name="header_forecast">Forecast</string>
+    <string name="header_detailed_forecast">Detailed Forecast</string>
+    <string name="weather_image">Weather image</string>
+</resources>

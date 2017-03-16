@@ -1,0 +1,65 @@
+Purpose: Using the NWS JSON web interface, display data for current and forecasted weather
+This API seems to be lacking in any sort of documentation, but I did find the XML API documentation which seems similar:
+http://graphical.weather.gov/xml/mdl/XML/Design/MDL_XML_Design.pdf
+To get data, use this URL format for an HTTP request:
+http://forecast.weather.gov/MapClick.php?lat=36.272815991465905&lon=-95.85213510465059&FcstType=json
+For calculating the heat index, I used the equations found here:
+http://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml
+
+App:
+
+Data structures to represent all weather data
+Data is stored in memory with the activity
+Data is also stored in internal storage
+
+Ideas:
+The detailed forecast text does not respect the units option
+Is chance of precipitation going to be used for anything?
+Notifications
+Widget
+Format latitude and longitude like on the NWS website
+Don't always display heat index just because there is no wind chill
+Add sunrise/sunset times
+Add phase of the moon
+Separate screen for displaying local conditions detected by device sensors
+Ability to detect other nearby devices running the app (if both have a sharing setting enabled)
+Nearby devices would share their sensor data, which could then be analyzed to avoid incorrect data
+
+App info display should properly handle the case where data is not present
+This could occur because no data is present, because no update has ever been done
+This could also occur because a certain element was not included in the last update
+
+Update when update button is pressed
+Text saying when last update was
+There is also text saying the update time for the actual data. I.e., when the source last updated
+
+Update should probably create a background thread that sends the activity the update data
+Upon receiving this data, the activity actually updates its information
+
+If a weather period's image uses the new DualImage.php,
+create a new bitmap that combines two images just like this
+URL format is: 'http://forecast.weather.gov/DualImage.php?i=bkn&j=tsra&jp=20',
+where i == left image base name, j == right image base name, ip == left image precipitation chance,
+jp == right image precipitation chance
+
+Option for manual location (default: off)
+If on, specifies a location to use for updates
+Location is specified as a ZIP code or address
+Location is then converted to lat/long via the Google geocoding API
+If off, needs location permission to use the device's location for updates
+Looks like location needs to be in lat/long format
+
+Option for displaying data in SI units or other units (default: other)
+The effects of this option are as follows:
+Pressure: hectopascals vs millibars
+Temperature: degrees C vs degrees F
+Distance: feet/miles vs meters/kilometers
+
+Widget (if I add one):
+
+Data is shared between app and widget
+
+Option for automatic update interval (default: 1 hour)
+Update every interval
+Minimum interval should be 1 hour
+This can also be off, meaning never update automatically

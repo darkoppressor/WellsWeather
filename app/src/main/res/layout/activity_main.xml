@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="org.cheeseandbacon.wellsweather.MainActivity">
+
+    <include
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textLastUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text=""
+                android:textSize="@dimen/text_size"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/containerHazards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_below="@id/textLastUpdate"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textHeadingHazards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/header_hazards"
+                    android:textColor="@color/headingHazardsTextColor"
+                    android:textSize="@dimen/text_size_header"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="@dimen/text_padding"
+                    android:background="@drawable/background_heading_hazards" />
+
+                <LinearLayout
+                    android:id="@+id/hazardsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/textHeadingHazards"
+                    android:layout_alignStart="@+id/textHeadingHazards"
+                    android:layout_alignLeft="@+id/textHeadingHazards" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/containerCurrentConditions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_below="@id/containerHazards"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textSource"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/text_size_header"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="@dimen/text_padding"
+                    android:background="@drawable/background_heading" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageCurrentWeather"
+                    android:layout_below="@+id/textSource"
+                    android:layout_alignStart="@+id/textSource"
+                    android:layout_alignLeft="@+id/textSource"
+                    android:padding="@dimen/text_padding"
+                    android:contentDescription="@string/weather_image" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textCurrentWeather"
+                    android:textSize="@dimen/text_size_current_weather"
+                    android:layout_toEndOf="@+id/imageCurrentWeather"
+                    android:layout_toRightOf="@+id/imageCurrentWeather"
+                    android:layout_alignTop="@+id/imageCurrentWeather"
+                    android:padding="@dimen/text_padding" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textCurrentConditions"
+                    android:textSize="@dimen/text_size"
+                    android:layout_below="@+id/imageCurrentWeather"
+                    android:layout_alignStart="@+id/imageCurrentWeather"
+                    android:layout_alignLeft="@+id/imageCurrentWeather"
+                    android:padding="@dimen/text_padding" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/containerForecast"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_below="@id/containerCurrentConditions"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textHeadingForecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/header_forecast"
+                    android:textSize="@dimen/text_size_header"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="@dimen/text_padding"
+                    android:background="@drawable/background_heading" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/textHeadingForecast"
+                    android:layout_alignStart="@+id/textHeadingForecast"
+                    android:layout_alignLeft="@+id/textHeadingForecast">
+
+                    <LinearLayout
+                        android:id="@+id/forecastScroller"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/containerDetailedForecast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border"
+            android:layout_below="@id/containerForecast"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textHeadingDetailedForecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/header_detailed_forecast"
+                android:textSize="@dimen/text_size_header"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:padding="@dimen/text_padding"
+                android:background="@drawable/background_heading" />
+
+            <LinearLayout
+                android:id="@+id/detailedForecastLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@+id/textHeadingDetailedForecast"
+                android:layout_alignStart="@+id/textHeadingDetailedForecast"
+                android:layout_alignLeft="@+id/textHeadingDetailedForecast" />
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

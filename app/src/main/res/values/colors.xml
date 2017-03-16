@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C5E5F5</color>
+    <color name="colorPrimaryDark">#00A3E3</color>
+    <color name="textColorTertiary">#000000</color>
+    <color name="textColorTertiaryInverse">#FFFFFF</color>
+    <color name="colorBackground">#FAFAFA</color>
+    <color name="headingColor">#EEEEEE</color>
+    <color name="headingHazardsBackgroundColor">#EED3D3</color>
+    <color name="headingHazardsTextColor">#AA2800</color>
+    <color name="borderColor">#CCCCCC</color>
+    <color name="forecastItemBackground">#EFF8FD</color>
+</resources>
